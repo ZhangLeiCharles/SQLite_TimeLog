@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="SQLiteExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SQLiteExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="result_display"
+                 IsReadOnly ="True"
+                 HorizontalAlignment="Left" Height="35" Margin="48,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="268"/>
+        <Button Click="start_Click"  x:Name="btn_start" Content="Start" HorizontalAlignment="Left" Margin="48,141,0,0" VerticalAlignment="Top" Width="140" Height="48"/>
+        <Button Click="stop_Click" x:Name="btn_stop" Content="Stop" HorizontalAlignment="Left" Margin="48,194,0,0" VerticalAlignment="Top" Width="140" Height="48"/>
+        <Button Click="btn_show_Click" x:Name="btn_show" Content="Show All" HorizontalAlignment="Left" Margin="48,247,0,0" VerticalAlignment="Top" Width="140" Height="48" RenderTransformOrigin="0.438,1.194"/>
+        <TextBox x:Name="timeElapse" HorizontalAlignment="Left" Margin="48,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="23" Width="268"/>
+    </Grid>
+</Page>
