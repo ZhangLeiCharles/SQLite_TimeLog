@@ -10,7 +10,7 @@ namespace hello_world
     {
         public DateTime start;
         public DateTime end;
-        public TimeSpan timeElapse;
+        public double timeElapse;
         public bool running;
     }
 }

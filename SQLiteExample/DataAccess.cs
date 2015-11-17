@@ -8,27 +8,27 @@ using System;
 
 namespace SQLiteExample
 {
-    public partial class MainTable
+    public class MainTable
     {
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public Int64 Id { get; set; }
-        
+
         [NotNull]
-        public String Name { get; set; }
-        
+        public string Name { get; set; }
+
         [NotNull]
         public DateTime StartTime { get; set; }
-        
+
         [NotNull]
         public DateTime EndTime { get; set; }
-        
+
         [NotNull]
-        public Int32 TimeSpan { get; set; }
-        
+        public double TimeSpan { get; set; }
+
         [NotNull]
-        public Decimal Category { get; set; }
-        
+        public string Category { get; set; }
+
     }
-    
-    
+
+
 }
