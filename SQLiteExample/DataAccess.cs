@@ -23,7 +23,7 @@ namespace SQLiteExample
         public DateTime EndTime { get; set; }
 
         [NotNull]
-        public double TimeSpan { get; set; }
+        public TimeSpan TimeSpan { get; set; }
 
         [NotNull]
         public string Category { get; set; }

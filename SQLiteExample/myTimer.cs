@@ -8,9 +8,11 @@ namespace hello_world
 {
     public class myTimer
     {
+        public string name;
+        public string category;
         public DateTime start;
         public DateTime end;
-        public double timeElapse;
+        public TimeSpan timeElapse;
         public bool running;
     }
 }

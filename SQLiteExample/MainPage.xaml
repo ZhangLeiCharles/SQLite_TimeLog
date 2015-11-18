@@ -7,27 +7,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Pivot Title="EMAIL">
-        <PivotItem Header="Tasks">
-            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <TextBox x:Name="result_display"
-                 IsReadOnly ="True"
-                 HorizontalAlignment="Left" Height="35" Margin="48,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="268"/>
-                <Button Click="start_Click"  x:Name="btn_start" Content="Start" HorizontalAlignment="Left" Margin="48,141,0,0" VerticalAlignment="Top" Width="140" Height="48"/>
-                <Button Click="stop_Click" x:Name="btn_stop" Content="Stop" HorizontalAlignment="Left" Margin="48,194,0,0" VerticalAlignment="Top" Width="140" Height="48"/>
-                <Button Click="btn_show_Click" x:Name="btn_show" Content="Show All" HorizontalAlignment="Left" Margin="48,247,0,0" VerticalAlignment="Top" Width="140" Height="48" RenderTransformOrigin="0.438,1.194"/>
-                <TextBox x:Name="timeElapse" HorizontalAlignment="Left" Margin="48,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="23" Width="268"/>
-            </Grid>
-        </PivotItem>
-        <PivotItem Header="Unread">
-            <TextBlock Text="unread emails go here." />
-        </PivotItem>
-        <PivotItem Header="Flagged">
-            <TextBlock Text="flagged emails go here." />
-        </PivotItem>
-        <PivotItem Header="Urgent">
-            <TextBlock Text="urgent emails go here." />
-        </PivotItem>
-    </Pivot>
-    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Pivot Title="TimeLog">
+            <PivotItem Header="Tasks">
+                <ListView x:Name="listView1" Margin="0,0,0,50">
+                    <ToggleButton Click="btn_Click"  x:Name="btn_0" Content="Start0" HorizontalAlignment="Right" Margin="0,5,0,5"   Width="310" Height="60"/>
+                    <ToggleButton Click="btn_Click"  x:Name="btn_1" Content="Start1" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60" />
+                    <ToggleButton Click="btn_Click"  x:Name="btn_2" Content="Start2" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
+                    <ToggleButton Click="btn_Click"  x:Name="btn_3" Content="Start3" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
+                    <ToggleButton Click="btn_Click"  x:Name="btn_4" Content="Start4" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
+                    <ToggleButton Click="btn_Click"  x:Name="btn_5" Content="Start5" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
+                    <ToggleButton Click="btn_Click"  x:Name="btn_6" Content="Start6" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
+                    <Button  Click="btn_show_Click" x:Name="btn_show" Content="Show All" HorizontalAlignment="Left" Margin="48,0,0,0" VerticalAlignment="Top" Width="140" Height="48" RenderTransformOrigin="0.438,1.194"/>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Plan">
+                
+            </PivotItem>
+            <PivotItem Header="History" Margin="14,0,10,0">
+                <Viewbox HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="336"/>
+
+            </PivotItem>
+            <PivotItem Header="Others">
+                <TextBlock Text="urgent emails go here." />
+            </PivotItem>
+        </Pivot>
+
+
+
+        <CommandBar Height="50"  Background="Transparent" IsOpen="False" VerticalAlignment="Bottom" Grid.Row="2">
+            <AppBarButton Icon="Add" Label="Add"/>
+            <AppBarButton Icon="ReShare" Label="Share"/>
+            <AppBarButton Icon="Edit" Label="Edit" Click="btn_show_Click"/>
+
+        </CommandBar>
+    </Grid>
+
+
 </Page>
