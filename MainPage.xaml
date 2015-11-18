@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="SQLiteExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SQLiteExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="SQLite Demo" FontSize="20" Foreground="Black" Margin="0 50 0 0"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="59" Width="1102"/>
+
+        </StackPanel>
+    </Grid>
+    <Page.BottomAppBar>
+        <AppBar IsOpen="True" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Add" Label="Add" Icon="Add" Click="Add_Click"/>
+                <AppBarButton x:Name="Show" Label="Show All" Icon="Zoom" Click="Show_Click"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+</Page>
