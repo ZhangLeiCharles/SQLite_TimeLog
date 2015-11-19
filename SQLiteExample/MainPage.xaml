@@ -18,24 +18,54 @@
         </Grid.RowDefinitions>
 
         <Grid Name="TimeLineGrid" Grid.Column="0" Grid.Row="0">
-            
+
         </Grid>
-        
+
         <Grid Name="TaskListGrid" Grid.Column="1" Grid.Row="0">
 
-            <ToggleButton Click="btn_Click"  x:Name="btn_0" Content="Start0" HorizontalAlignment="Right" Margin="0,5,0,5"   Width="310" Height="60"/>
-            <ToggleButton Click="btn_Click"  x:Name="btn_1" Content="Start1" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60" />
-            <ToggleButton Click="btn_Click"  x:Name="btn_2" Content="Start2" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
-            <ToggleButton Click="btn_Click"  x:Name="btn_3" Content="Start3" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
-            <ToggleButton Click="btn_Click"  x:Name="btn_4" Content="Start4" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
-            <ToggleButton Click="btn_Click"  x:Name="btn_5" Content="Start5" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
-            <ToggleButton Click="btn_Click"  x:Name="btn_6" Content="Start6" HorizontalAlignment="Right" Margin="0,5,0,5"  Width="310" Height="60"/>
-            <Button  Click="btn_show_Click" x:Name="btn_show" Content="Show All" HorizontalAlignment="Left" Margin="48,0,0,0" VerticalAlignment="Top" Width="140" Height="48" RenderTransformOrigin="0.438,1.194"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Name="Task_0" Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="TaskName_0" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="taskname" FontWeight="Normal"/>
+
+                <TextBlock x:Name="TaskInfo_0" Grid.Column="1" Grid.Row="0" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="1.5h/2h" FontWeight="Normal"/>
+
+                <TextBlock x:Name="TaskTimer_0" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal"/>
+
+            </Grid>
+            <Rectangle Name="Task_0_Color" Grid.Column="1" Grid.Row="0" Fill="Red" Height="70" Width="4"/>
+
+            <ToggleButton Click="btn_Click"  x:Name="btn_0" Content="Start0" Grid.Column="2" Grid.Row="0" Height="70" Width=" 70"/>
+
 
         </Grid>
 
         <Grid Name="CommandBar" Grid.Row="1" Grid.ColumnSpan="2">
-            <CommandBar Height="50"  Background="Transparent" IsOpen="False" VerticalAlignment="Bottom" Grid.Row="2" Opened="CommandBar_Opened">
+            <CommandBar Height="50"  Background="Transparent" IsOpen="False" VerticalAlignment="Bottom" Grid.Row="2">
                 <AppBarButton Icon="Add" Label="Add"/>
                 <AppBarButton Icon="ReShare" Label="Share"/>
                 <AppBarButton Icon="Edit" Label="Edit" Click="btn_show_Click"/>
