@@ -29,7 +29,7 @@ namespace SQLiteExample
 
         myTimer newTimer = new myTimer();
 
-        public MainPage()
+        public MainPage() 
         {
             this.InitializeComponent();
             path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db1.sqlite");
@@ -109,5 +109,7 @@ namespace SQLiteExample
                 });
             }
         }
+
+        
     }
 }
