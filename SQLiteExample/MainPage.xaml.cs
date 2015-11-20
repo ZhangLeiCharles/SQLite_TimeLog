@@ -27,7 +27,8 @@ namespace SQLiteExample
         string path;
         SQLite.Net.SQLiteConnection conn;
 
-        myTimer newTimer = new myTimer();
+        myTimer currentTimer = new myTimer();
+
 
         Windows.UI.Xaml.DispatcherTimer timer0 = new DispatcherTimer();
 
@@ -41,78 +42,172 @@ namespace SQLiteExample
             Debug.WriteLine(path);
 
             //initialize timer
-            newTimer.name = "new timer";
-            newTimer.category = "default";
-            newTimer.start = DateTime.Now;
-            newTimer.end = DateTime.Now;
-            newTimer.timeElapse = TimeSpan.Zero;
-            newTimer.running = false;
-
-            btn_0.Content = "Start";
+            currentTimer.name = "new timer";
+            currentTimer.category = "default";
+            currentTimer.start = DateTime.Now;
+            currentTimer.end = DateTime.Now;
+            currentTimer.timeElapse = TimeSpan.Zero;
+            currentTimer.running = false;
+            currentTimer.tag = 0;
 
             DispatcherTimerSetup();
 
         }
 
+        //time cnt info refresh 
         public void DispatcherTimerSetup()
         {
-
             timer0.Tick += dispatcherTimer_Tick;
             timer0.Interval = new TimeSpan(0, 0, 1);
         }
-
-
-
+        //update time elapse 1Hz, and refresh textblock
         void dispatcherTimer_Tick(object sender, object e)
         {
-            newTimer.end = DateTime.Now;
-            newTimer.timeElapse = (newTimer.end - newTimer.start);
-            TaskTimer_0.Text = newTimer.timeElapse.Hours.ToString() + ":" + newTimer.timeElapse.Minutes.ToString() + ":" + newTimer.timeElapse.Seconds.ToString();
+            currentTimer.end = DateTime.Now;
+            currentTimer.timeElapse = (currentTimer.end - currentTimer.start);
+            fresh_task_info_running();
+
         }
 
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as ToggleButton;
-            //press button
+            //button down
             if (button.IsChecked == true)
             {
-                //previous timer still running
-                if (newTimer.running == true)
+                //if has task running, end a task first
+                if (currentTimer.running == true)
                 {
-                    newTimer.running = false;
-
-                    store_data(newTimer);
-
+                    task_end();
+                    fresh_task_info_end();
+                    TaskBtn_0.IsChecked = false;
                 }
 
-                //initialize new taks info
-                newTimer.category = "default";
-                newTimer.name = button.Content.ToString();
-                newTimer.start = DateTime.Now;
-                newTimer.running = true;
-
-                btn_0.Content = "Running";
-
-                //start counting, updata time info on main page
-                timer0.Start();
+                //start a new task
+                task_start(button.Tag.ToString());
+                fresh_task_info_start();
             }
-            //release button
+            //button up
             else
             {
-                //prepare to save new timer data
-                //newTimer.end = DateTime.Now;
-                //newTimer.timeElapse = (newTimer.end - newTimer.start);
-                newTimer.running = false;
-
-                store_data(newTimer);
-                btn_0.Content = "Start";
-                TaskTimer_0.Text = "-:--:--";
-                timer0.Stop();
+                //button release, stop a task
+                task_end();
             }
 
         }
 
+        private void fresh_task_info_start()
+        {
+            switch (currentTimer.tag)
+            {
+                case 0:
+                    TaskBtn_0.Content = "Running";
+                    TaskCnt_0.Text = "0:0:0";
+                    break;
+                case 1:
+                    TaskBtn_1.Content = "Running";
+                    TaskCnt_1.Text = "0:0:0";
+                    break;
+                case 2:
+                    TaskBtn_2.Content = "Running";
+                    TaskCnt_2.Text = "0:0:0";
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void fresh_task_info_running()
+        {
+            switch (currentTimer.tag)
+            {
+                case 0:
+                    TaskCnt_0.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 1:
+                    TaskCnt_1.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 2:
+                    TaskCnt_2.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void fresh_task_info_end()
+        {
+            switch (currentTimer.tag)
+            {
+                case 0:
+                    //reset display zone
+                    TaskBtn_0.Content = "Start";
+                    TaskCnt_0.Text = "-:--:--";
+                    //display last timer's data
+                    TaskHist_0.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 1:
+                    TaskBtn_1.Content = "Start";
+                    TaskCnt_1.Text = "-:--:--";
+                    TaskHist_1.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 2:
+                    TaskBtn_2.Content = "Start";
+                    TaskCnt_2.Text = "-:--:--";
+                    TaskHist_2.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void task_end()
+        {
+            timer0.Stop();
+            store_data(currentTimer);
+
+            currentTimer.running = false;
+            fresh_task_info_end();
+        }
+
+        /**************************************************
+        *task action button press
+        ***************************************************/
+        private void task_start(string taskTag)
+        {
+            //initialize new timer
+            currentTimer.category = "default";
+            currentTimer.name = task_get_name(taskTag);
+            currentTimer.start = DateTime.Now;
+            currentTimer.end = DateTime.Now;
+            currentTimer.timeElapse = TimeSpan.Zero;
+            currentTimer.running = true;
+            currentTimer.tag = int.Parse(taskTag);
+
+            //start counting, updata time info on main page
+            timer0.Start();
+            fresh_task_info_start();
+        }
+
+        private string task_get_name(string taskTag)
+        {
+            switch (taskTag)
+            {
+                case "0":
+                    return TaskName_0.Text;
+                case "1":
+                    return TaskName_1.Text;
+                case "2":
+                    return TaskName_2.Text;
+                default:
+                    return "unknow";
+                    
+            }
+        }
 
         private void btn_show_Click(object sender, RoutedEventArgs e)
         {
@@ -125,23 +220,21 @@ namespace SQLiteExample
             }
         }
 
-        private void store_data(myTimer newTimer)
+        private void store_data(myTimer currentTimer)
         {
             //filter too short timer
-            if (newTimer.timeElapse.TotalMinutes > 0.01)
+            if (currentTimer.timeElapse.TotalMinutes > 0.01)
             {
                 conn.Insert(new MainTable()
                 {
                     Category = "Button",
-                    Name = newTimer.name,
-                    StartTime = newTimer.start,
-                    EndTime = newTimer.end,
-                    TimeSpan = newTimer.timeElapse
-
+                    Name = currentTimer.name,
+                    StartTime = currentTimer.start,
+                    EndTime = currentTimer.end,
+                    TimeSpan = currentTimer.timeElapse
                 });
             }
         }
-
-
+        
     }
 }
