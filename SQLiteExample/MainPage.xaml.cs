@@ -69,7 +69,6 @@ namespace SQLiteExample
 
         }
 
-
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as ToggleButton;
@@ -81,7 +80,6 @@ namespace SQLiteExample
                 {
                     task_end();
                     fresh_task_info_end();
-                    TaskBtn_0.IsChecked = false;
                 }
 
                 //start a new task
@@ -94,8 +92,10 @@ namespace SQLiteExample
                 //button release, stop a task
                 task_end();
             }
-
+           
         }
+
+
 
         private void fresh_task_info_start()
         {
@@ -112,6 +112,26 @@ namespace SQLiteExample
                 case 2:
                     TaskBtn_2.Content = "Running";
                     TaskCnt_2.Text = "0:0:0";
+                    break;
+                case 3:
+                    TaskBtn_3.Content = "Running";
+                    TaskCnt_3.Text = "0:0:0";
+                    break;
+                case 4:
+                    TaskBtn_4.Content = "Running";
+                    TaskCnt_4.Text = "0:0:0";
+                    break;
+                case 5:
+                    TaskBtn_5.Content = "Running";
+                    TaskCnt_5.Text = "0:0:0";
+                    break;
+                case 6:
+                    TaskBtn_6.Content = "Running";
+                    TaskCnt_6.Text = "0:0:0";
+                    break;
+                case 7:
+                    TaskBtn_7.Content = "Running";
+                    TaskCnt_7.Text = "0:0:0";
                     break;
                 default:
                     break;
@@ -132,6 +152,22 @@ namespace SQLiteExample
                 case 2:
                     TaskCnt_2.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
                     break;
+                case 3:
+                    TaskCnt_3.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 4:
+                    TaskCnt_4.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 5:
+                    TaskCnt_5.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 6:
+                    TaskCnt_6.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+                case 7:
+                    TaskCnt_7.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    break;
+               
                 default:
                     break;
             }
@@ -148,17 +184,51 @@ namespace SQLiteExample
                     TaskCnt_0.Text = "-:--:--";
                     //display last timer's data
                     TaskHist_0.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_0.IsChecked = false;
                     break;
                 case 1:
                     TaskBtn_1.Content = "Start";
                     TaskCnt_1.Text = "-:--:--";
                     TaskHist_1.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_1.IsChecked = false;
                     break;
                 case 2:
                     TaskBtn_2.Content = "Start";
                     TaskCnt_2.Text = "-:--:--";
                     TaskHist_2.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_2.IsChecked = false;
                     break;
+                case 3:
+                    TaskBtn_3.Content = "Start";
+                    TaskCnt_3.Text = "-:--:--";
+                    TaskHist_3.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_3.IsChecked = false;
+                    break;
+                case 4:
+                    TaskBtn_4.Content = "Start";
+                    TaskCnt_4.Text = "-:--:--";
+                    TaskHist_4.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_4.IsChecked = false;
+                    break;
+                case 5:
+                    TaskBtn_5.Content = "Start";
+                    TaskCnt_5.Text = "-:--:--";
+                    TaskHist_5.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_5.IsChecked = false;
+                    break;
+                case 6:
+                    TaskBtn_6.Content = "Start";
+                    TaskCnt_6.Text = "-:--:--";
+                    TaskHist_6.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_6.IsChecked = false;
+                    break;
+                case 7:
+                    TaskBtn_7.Content = "Start";
+                    TaskCnt_7.Text = "-:--:--";
+                    TaskHist_7.Text = currentTimer.timeElapse.Hours.ToString() + ":" + currentTimer.timeElapse.Minutes.ToString() + ":" + currentTimer.timeElapse.Seconds.ToString();
+                    TaskBtn_7.IsChecked = false;
+                    break;
+                
                 default:
                     break;
             }
@@ -203,6 +273,16 @@ namespace SQLiteExample
                     return TaskName_1.Text;
                 case "2":
                     return TaskName_2.Text;
+                case "3":
+                    return TaskName_3.Text;
+                case "4":
+                    return TaskName_4.Text;
+                case "5":
+                    return TaskName_5.Text;
+                case "6":
+                    return TaskName_6.Text;
+                case "7":
+                    return TaskName_7.Text;
                 default:
                     return "unknow";
                     
