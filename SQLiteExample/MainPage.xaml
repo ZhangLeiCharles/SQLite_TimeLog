@@ -141,6 +141,111 @@
                 <TextBlock x:Name="TaskCnt_2" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal" FontSize="21.333"/>
             </Grid>
 
+            <!-- **************task_3 bar *********************** -->
+            <!--task info column-->
+            <Grid Name="Task_3" Grid.Column="0" Grid.Row="3">
+                <!--grid define in task column-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <!--display task name-->
+                <TextBlock x:Name="TaskName_3" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="taskname3" FontWeight="Normal" FontSize="20"/>
+                <!--display previous time elapse-->
+                <TextBlock x:Name="TaskHist_3" Grid.Column="1" Grid.Row="0" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="0:00:00" FontWeight="Normal" FontSize="16" Foreground="#FF979494"/>
+                <!--display the time epalse in real time-->
+                <TextBlock x:Name="TaskCnt_3" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal" FontSize="21.333"/>
+
+            </Grid>
+            <!-- **************task_4 bar *********************** -->
+            <!--task info column-->
+            <Grid Name="Task_4" Grid.Column="0" Grid.Row="4">
+                <!--grid define in task column-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <!--display task name-->
+                <TextBlock x:Name="TaskName_4" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="taskname4" FontWeight="Normal" FontSize="20"/>
+                <!--display previous time elapse-->
+                <TextBlock x:Name="TaskHist_4" Grid.Column="1" Grid.Row="0" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="0:00:00" FontWeight="Normal" FontSize="16" Foreground="#FF979494"/>
+                <!--display the time epalse in real time-->
+                <TextBlock x:Name="TaskCnt_4" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal" FontSize="21.333"/>
+
+            </Grid>
+            <!-- **************task_5 bar *********************** -->
+            <!--task info column-->
+            <Grid Name="Task_5" Grid.Column="0" Grid.Row="5">
+                <!--grid define in task column-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <!--display task name-->
+                <TextBlock x:Name="TaskName_5" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="taskname5" FontWeight="Normal" FontSize="20"/>
+                <!--display previous time elapse-->
+                <TextBlock x:Name="TaskHist_5" Grid.Column="1" Grid.Row="0" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="0:00:00" FontWeight="Normal" FontSize="16" Foreground="#FF979494"/>
+                <!--display the time epalse in real time-->
+                <TextBlock x:Name="TaskCnt_5" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal" FontSize="21.333"/>
+            </Grid>
+            <!-- **************task_6 bar *********************** -->
+            <!--task info column-->
+            <Grid Name="Task_6" Grid.Column="0" Grid.Row="6">
+                <!--grid define in task column-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <!--display task name-->
+                <TextBlock x:Name="TaskName_6" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="taskname6" FontWeight="Normal" FontSize="20"/>
+                <!--display previous time elapse-->
+                <TextBlock x:Name="TaskHist_6" Grid.Column="1" Grid.Row="0" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="0:00:00" FontWeight="Normal" FontSize="16" Foreground="#FF979494"/>
+                <!--display the time epalse in real time-->
+                <TextBlock x:Name="TaskCnt_6" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal" FontSize="21.333"/>
+
+            </Grid>
+            <!-- **************task_7 bar *********************** -->
+            <!--task info column-->
+            <Grid Name="Task_7" Grid.Column="0" Grid.Row="7">
+                <!--grid define in task column-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <!--display task name-->
+                <TextBlock x:Name="TaskName_7" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="taskname7" FontWeight="Normal" FontSize="20"/>
+                <!--display previous time elapse-->
+                <TextBlock x:Name="TaskHist_7" Grid.Column="1" Grid.Row="0" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="0:00:00" FontWeight="Normal" FontSize="16" Foreground="#FF979494"/>
+                <!--display the time epalse in real time-->
+                <TextBlock x:Name="TaskCnt_7" Grid.Column="1" Grid.Row="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="- : -- : --" FontWeight="Normal" FontSize="21.333"/>
+
+            </Grid>
+            
 
             <!--task color bar-->
             <Rectangle Name="TaskColor_0" Grid.Column="1" Grid.Row="0" Fill="Black" Height="70" Width="4"/>
@@ -156,6 +261,11 @@
             <ToggleButton Tag="0" Click="btn_Click"  x:Name="TaskBtn_0" Content="Start0" Grid.Column="2" Grid.Row="0" Height="70" Width=" 70"/>
             <ToggleButton Tag="1" Click="btn_Click"  x:Name="TaskBtn_1" Content="Start0" Grid.Column="2" Grid.Row="1" Height="70" Width=" 70"/>
             <ToggleButton Tag="2" Click="btn_Click"  x:Name="TaskBtn_2" Content="Start0" Grid.Column="2" Grid.Row="2" Height="70" Width=" 70"/>
+            <ToggleButton Tag="3" Click="btn_Click"  x:Name="TaskBtn_3" Content="Start0" Grid.Column="2" Grid.Row="3" Height="70" Width=" 70"/>
+            <ToggleButton Tag="4" Click="btn_Click"  x:Name="TaskBtn_4" Content="Start0" Grid.Column="2" Grid.Row="4" Height="70" Width=" 70"/>
+            <ToggleButton Tag="5" Click="btn_Click"  x:Name="TaskBtn_5" Content="Start0" Grid.Column="2" Grid.Row="5" Height="70" Width=" 70"/>
+            <ToggleButton Tag="6" Click="btn_Click"  x:Name="TaskBtn_6" Content="Start0" Grid.Column="2" Grid.Row="6" Height="70" Width=" 70"/>
+            <ToggleButton Tag="7" Click="btn_Click"  x:Name="TaskBtn_7" Content="Start0" Grid.Column="2" Grid.Row="7" Height="70" Width=" 70"/>
 
         </Grid>
 
