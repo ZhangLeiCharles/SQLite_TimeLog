@@ -29,7 +29,10 @@ namespace SQLiteExample
 
         myTimer newTimer = new myTimer();
 
-        public MainPage() 
+        Windows.UI.Xaml.DispatcherTimer timer0 = new DispatcherTimer();
+
+
+        public MainPage()
         {
             this.InitializeComponent();
             path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db1.sqlite");
@@ -44,7 +47,29 @@ namespace SQLiteExample
             newTimer.end = DateTime.Now;
             newTimer.timeElapse = TimeSpan.Zero;
             newTimer.running = false;
+
+            btn_0.Content = "Start";
+
+            DispatcherTimerSetup();
+
         }
+
+        public void DispatcherTimerSetup()
+        {
+
+            timer0.Tick += dispatcherTimer_Tick;
+            timer0.Interval = new TimeSpan(0, 0, 1);
+        }
+
+
+
+        void dispatcherTimer_Tick(object sender, object e)
+        {
+            newTimer.end = DateTime.Now;
+            newTimer.timeElapse = (newTimer.end - newTimer.start);
+            TaskTimer_0.Text = newTimer.timeElapse.Hours.ToString() + ":" + newTimer.timeElapse.Minutes.ToString() + ":" + newTimer.timeElapse.Seconds.ToString();
+        }
+
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
@@ -55,28 +80,35 @@ namespace SQLiteExample
                 //previous timer still running
                 if (newTimer.running == true)
                 {
-                    newTimer.end = DateTime.Now;
-                    newTimer.timeElapse = (newTimer.end - newTimer.start);
                     newTimer.running = false;
 
                     store_data(newTimer);
 
                 }
+
+                //initialize new taks info
                 newTimer.category = "default";
                 newTimer.name = button.Content.ToString();
                 newTimer.start = DateTime.Now;
                 newTimer.running = true;
 
+                btn_0.Content = "Running";
 
+                //start counting, updata time info on main page
+                timer0.Start();
             }
             //release button
             else
             {
-                newTimer.end = DateTime.Now;
-                newTimer.timeElapse = (newTimer.end - newTimer.start);
+                //prepare to save new timer data
+                //newTimer.end = DateTime.Now;
+                //newTimer.timeElapse = (newTimer.end - newTimer.start);
                 newTimer.running = false;
 
                 store_data(newTimer);
+                btn_0.Content = "Start";
+                TaskTimer_0.Text = "-:--:--";
+                timer0.Stop();
             }
 
         }
@@ -105,11 +137,11 @@ namespace SQLiteExample
                     StartTime = newTimer.start,
                     EndTime = newTimer.end,
                     TimeSpan = newTimer.timeElapse
-                    
+
                 });
             }
         }
 
-        
+
     }
 }
